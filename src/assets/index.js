@@ -4,7 +4,7 @@ import loginFormImg from "./login/loginFormImg.svg";
 import SignUpFormImg from "./login/signupFormImg.jpg";
 
 import logoIconImg from "./logoIcon.svg";
-import sidebarDarkThemeLogo from "./SidebarDarkThemeLogo.svg";
+import sidebarDarkThemeLogo from "./SidebarDarkThemeLogo.png";
 
 // !DOCTOR
 import doctorIconImg from "./doctor/doctor.png";

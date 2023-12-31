@@ -39,7 +39,7 @@ const DoctorSidebar = () => {
           </svg>
         </button>
         {/* <!-- SIDEBAR HEADER --> */}
-        <NavLink to="/" className={"mx-5 my-4 block"}>
+        <NavLink className={"mx-5 my-4 block"}>
           {theme == "light" ? (
             <img src={sidebarLightThemeLogo} alt="Logo" />
           ) : (
