@@ -1,12 +1,12 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { loginFormImg } from "../../assets";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   handleLoginInputChange,
   selectAllLoginStates,
-} from "../../store/features/loginModuleSlices/loginSlice";
-import { useLoginUserMutation } from "../../store/apis/loginModuleAPIs";
+} from "../../store/features/LoginModuleSlices/loginSlice";
+import { useLoginUserMutation } from "../../store/apis/LoginModuleAPIs";
 
 const roles = ["Doctor", "Receptionist", "Pharmacist"];
 
@@ -17,8 +17,6 @@ const LoginForm = () => {
   const { loginFormData } = useSelector(selectAllLoginStates);
   const { email, pass, designation } = loginFormData;
 
-  const navigate = useNavigate();
-
   const [LoginModuleAPIs, loginUserRes] = useLoginUserMutation();
   const dispatch = useDispatch();
 
@@ -26,7 +24,6 @@ const LoginForm = () => {
     e.preventDefault();
     await LoginModuleAPIs(loginFormData);
     localStorage.setItem("doctor", true);
-    navigate("/doctor");
   };
 
   return (
