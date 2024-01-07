@@ -12,21 +12,48 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   closeDoctorSidebar,
   selectAllDoctorGeneralStates,
-} from "../../store/features/doctorModuleSlices/DoctorGeneralSlice";
+} from "../../store/features/doctorModuleSlices/doctorGeneralSlice";
 
 const DoctorSidebar = () => {
-  const { sidebarOpen } = useSelector(selectAllDoctorGeneralStates);
+  const { sidebarOpen, lightTheme } = useSelector(selectAllDoctorGeneralStates);
   const dispatch = useDispatch();
 
   const location = useLocation().pathname;
   const pathname = location.split("/");
 
-  const theme = "dark";
+  const menuNavLinks = [
+    {
+      name: "Dashboard",
+      link: "doctor",
+      icon: DashboardSvg,
+    },
+    {
+      name: "Patients",
+      link: "patients",
+      icon: PatientSvg,
+    },
+    {
+      name: "Revenue",
+      link: "revenue",
+      icon: RupeesSvg,
+    },
+    {
+      name: "Fellow Doctors",
+      link: "fellow-doctors",
+      icon: StethoscopeSvg,
+    },
+    {
+      name: "Feature Request",
+      link: "request-feature",
+      icon: ExternalListSvg,
+    },
+  ];
+
   return (
     <>
       <aside
         //   ref={sidebar}
-        className={`absolute left-0 top-0 z-9999 flex h-screen w-60 transition-six-all dark:bg-black ${
+        className={`absolute left-0 top-0 z-10 flex h-screen w-60 transition-six-all dark:bg-black ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         } flex-col overflow-y-hidden bg-white duration-300 ease-linear dark:border dark:border-r-black-2 xl:static xl:translate-x-0`}
       >
@@ -40,7 +67,7 @@ const DoctorSidebar = () => {
         </button>
         {/* <!-- SIDEBAR HEADER --> */}
         <NavLink className={"mx-5 my-4 block"}>
-          {theme == "light" ? (
+          {lightTheme ? (
             <img src={sidebarLightThemeLogo} alt="Logo" />
           ) : (
             <img src={sidebarDarkThemeLogo} alt="Logo" />
@@ -59,82 +86,21 @@ const DoctorSidebar = () => {
 
               <ul className="mb-6 flex flex-col gap-2">
                 {/* <!-- Menu Item Dashboard --> */}
-                <li>
-                  <NavLink
-                    to="/"
-                    className={`text-body  dark:text-bodydark1 group  relative flex items-center gap-2.5 rounded-md px-4  py-2 text-black-3 transition-three-all dark:hover:bg-black-2  ${
-                      pathname === "/" || pathname.includes("doctor")
-                        ? "dark:bg-meta-4 bg-primary text-white"
-                        : "text-black-3 hover:bg-black-5"
-                    }`}
-                  >
-                    <DashboardSvg />
-                    Dashboard
-                  </NavLink>
-                </li>
-                {/* <!-- Menu Item Calendar --> */}
-                <li>
-                  <NavLink
-                    to="/calendar"
-                    className={`text-body dark:text-bodydark1 group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-black-3 transition-three-all dark:hover:bg-black-2   ${
-                      pathname.includes("calendar")
-                        ? "dark:bg-meta-4 bg-primary text-white"
-                        : "hover:bg-black-5"
-                    }`}
-                  >
-                    <PatientSvg />
-                    Patients
-                  </NavLink>
-                </li>
-                {/* <!-- Menu Item Calendar --> */}
-
-                {/* <!-- Menu Item Profile --> */}
-                <li>
-                  <NavLink
-                    to="/profile"
-                    className={`text-body dark:text-bodydark1 group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-black-3 transition-three-all hover:bg-black-5 dark:hover:bg-black-2 ${
-                      pathname.includes("profile")
-                        ? "dark:bg-meta-4 bg-primary text-white"
-                        : "hover:bg-black-5"
-                    }`}
-                  >
-                    <RupeesSvg />
-                    Revenue
-                  </NavLink>
-                </li>
-                {/* <!-- Menu Item Profile --> */}
-
-                {/* <!-- Menu Item Tables --> */}
-                <li>
-                  <NavLink
-                    to="/tables"
-                    className={`text-body dark:text-bodydark1 group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-black-3 transition-three-all hover:bg-black-5 dark:hover:bg-black-2 ${
-                      pathname.includes("tables")
-                        ? "dark:bg-meta-4 bg-primary text-white"
-                        : "hover:bg-black-5"
-                    }`}
-                  >
-                    <StethoscopeSvg />
-                    Fellow Doctors
-                  </NavLink>
-                </li>
-                {/* <!-- Menu Item Tables --> */}
-
-                {/* <!-- Menu Item Settings --> */}
-                <li>
-                  <NavLink
-                    to="/settings"
-                    className={`text-body dark:text-bodydark1 group relative flex items-center gap-2.5 rounded-md px-4 py-2 font-medium text-black-3  transition-three-all hover:bg-black-5 dark:hover:bg-black-2 ${
-                      pathname.includes("settings")
-                        ? "dark:bg-meta-4 bg-primary text-white"
-                        : "hover:bg-black-5"
-                    }`}
-                  >
-                    <ExternalListSvg />
-                    Request Feature
-                  </NavLink>
-                </li>
-                {/* <!-- Menu Item Settings --> */}
+                {menuNavLinks.map((nav, index) => (
+                  <li key={index}>
+                    <NavLink
+                      to={index === 0 ? `/${nav.link}` : nav.link}
+                      className={` group  relative flex items-center gap-2.5 rounded-md px-4  py-2  transition-three-all dark:hover:bg-black-2  ${
+                        pathname[pathname.length - 1] === nav.link
+                          ? "dark:bg-meta-4 bg-primary text-white"
+                          : "text-black-3 hover:bg-black-5"
+                      }`}
+                    >
+                      {<nav.icon />}
+                      {nav.name}
+                    </NavLink>
+                  </li>
+                ))}
               </ul>
             </div>
 

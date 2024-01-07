@@ -1,9 +1,10 @@
 import { OpenEyeSvg, RefreshIconSvg } from "../../assets/svgs";
+import MobileDashboardBtn from "./MobileDashboardbtn";
 
 const DoctorDashboardTable = () => {
   return (
     <div className="w-full overflow-x-hidden rounded-md border border-black-5 bg-white py-2 shadow-default dark:border-black-2 dark:bg-black">
-      <div className="top-0  flex w-full justify-between border-b-[1px]  border-black-4 bg-white px-4 pb-4 dark:border-black-2  dark:bg-black  md:px-6   xl:px-7.5">
+      <div className="top-0 flex w-full items-center justify-between border-b-[1px]  border-black-4 bg-white px-4 pb-4 dark:border-black-2  dark:bg-black  md:px-6   xl:px-7.5">
         <div>
           <p className="text-body  text-black-3 dark:text-white">
             Latest Appointments
@@ -12,9 +13,9 @@ const DoctorDashboardTable = () => {
             Today’s Appointment List
           </h4>
         </div>
-        {/* <div className="block md:hidden">
-      <MobileDashboardBtn />
-    </div> */}
+        <div className="block md:hidden">
+          <MobileDashboardBtn />
+        </div>
         <div className="hidden gap-4 py-[6px]  md:flex">
           <button
             className="three-mili-sec-trans dark:bg-graydark text-blax  group flex h-fit gap-2 whitespace-nowrap  rounded-md border-[1px] border-primary px-3 py-2 font-medium transition-three-all hover:bg-primary hover:text-white dark:text-white"

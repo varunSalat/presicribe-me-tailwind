@@ -1,4 +1,4 @@
-import { SignUpForm, SignUpFormSecond, LoginBg } from "../../components/login";
+import { SignUpFormSecond, LoginBg } from "../../components/login";
 import { Header } from "../../layouts";
 
 const CreateAccount = () => {
@@ -6,7 +6,6 @@ const CreateAccount = () => {
     <>
       <Header />
       <LoginBg />
-      {/* <SignUpForm /> */}
       <SignUpFormSecond />
     </>
   );

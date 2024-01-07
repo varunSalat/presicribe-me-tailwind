@@ -5,7 +5,6 @@ import { DarkModeSwitcher, DropDownUser } from "../general";
 import GridIconDropDown from "./GridIconDropDown";
 import { useDispatch } from "react-redux";
 import { openDoctorSidebar } from "../../store/features/doctorModuleSlices/doctorGeneralSlice";
-
 const topNavbarLinks = [
   {
     label: "Appointments",

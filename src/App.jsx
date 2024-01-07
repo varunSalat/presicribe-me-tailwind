@@ -5,10 +5,20 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import { CreateAccount, LoginPage } from "./pages";
-import { DoctorDashboardPage } from "./pages/doctor";
+
+import {
+  DoctorAllPatientPage,
+  DoctorDashboardPage,
+  DoctorProfilePage,
+  DoctorRevenuePage,
+  FellowDoctorsPage,
+  RequestFeaturePage,
+} from "./pages/doctor";
+
 import { DoctorLayout } from "./layouts";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+
 import { changeDoctorTheme } from "./store/features/doctorModuleSlices/doctorGeneralSlice";
 
 const router = createBrowserRouter(
@@ -19,6 +29,11 @@ const router = createBrowserRouter(
       {/* ===DOCTOR ROUTES=== */}
       <Route path="doctor" element={<DoctorLayout />}>
         <Route index element={<DoctorDashboardPage />} />
+        <Route path="patients" element={<DoctorAllPatientPage />} />
+        <Route path="revenue" element={<DoctorRevenuePage />} />
+        <Route path="fellow-doctors" element={<FellowDoctorsPage />} />
+        <Route path="request-feature" element={<RequestFeaturePage />} />
+        <Route path="profile" element={<DoctorProfilePage />} />
       </Route>
     </Route>,
   ),

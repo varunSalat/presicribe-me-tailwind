@@ -4,14 +4,19 @@ import { configureStore } from "@reduxjs/toolkit";
 import { loginReducer } from "./features/loginModuleSlices";
 // APIS
 import LoginModuleAPIs from "./apis/loginModuleAPIs";
-import { DoctorGeneralReducer } from "./features/doctorModuleSlices";
+import {
+  doctorGeneralReducer,
+  onboardReducer,
+} from "./features/doctorModuleSlices";
+
 const store = configureStore({
   reducer: {
     // !APIs
     [LoginModuleAPIs.reducerPath]: LoginModuleAPIs.reducer,
     // !REDUCERS
     login: loginReducer,
-    doctorGeneral: DoctorGeneralReducer,
+    doctorGeneral: doctorGeneralReducer,
+    onboard: onboardReducer,
   },
   // Add the middleware for RTK-Query
   middleware: (getDefaultMiddleware) =>

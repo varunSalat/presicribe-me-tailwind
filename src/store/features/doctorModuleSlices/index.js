@@ -1,3 +1,3 @@
-import DoctorGeneralReducer from "./DoctorGeneralSlice";
-
-export { DoctorGeneralReducer };
+import doctorGeneralReducer from "./doctorGeneralSlice";
+import onboardReducer from "./onboardSlice";
+export { doctorGeneralReducer, onboardReducer };

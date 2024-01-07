@@ -10,6 +10,14 @@ import sidebarDarkThemeLogo from "./SidebarDarkThemeLogo.png";
 import doctorIconImg from "./doctor/doctor.png";
 import frontDeskIconImg from "./doctor/front-desk.png";
 import medicineIconImg from "./doctor/medicine.svg";
+import hospitalBuildingImg from "./doctor/hospitalBuildingImg.jpg";
+
+// ON BOARD
+import singleDoctorImg from "./doctor/singleDoctor.jpg";
+import multipleDoctorImg from "./doctor/multipleDoctors.jpg";
+import receptionOnboard from "./doctor/receptionOnboard.svg";
+import pharmacistOnboard from "./doctor/pharmacistonBoard.svg";
+import singleDocOnboardSecondForm from "./doctor/singleDocOnboardSecondForm.svg";
 
 import sidebarLightThemeLogo from "./sidebarLightThemeLogo.svg";
 export {
@@ -23,4 +31,10 @@ export {
   doctorIconImg,
   frontDeskIconImg,
   medicineIconImg,
+  singleDoctorImg,
+  multipleDoctorImg,
+  singleDocOnboardSecondForm,
+  pharmacistOnboard,
+  receptionOnboard,
+  hospitalBuildingImg,
 };

@@ -20,8 +20,8 @@ const DarkModeSwitcher = () => {
         >
           <input
             type="checkbox"
-            onChange={(e) => {
-              dispatch(changeDoctorTheme(e.target.checked));
+            onChange={() => {
+              dispatch(changeDoctorTheme(!lightTheme));
             }}
             value={lightTheme}
             className="dur absolute top-0 z-50 m-0 h-full w-full cursor-pointer opacity-0"

@@ -3,7 +3,7 @@ import { Header } from "../../layouts";
 
 const LoginPage = () => {
   return (
-    <section className="h-screen w-screen relative">
+    <section className="relative h-screen w-screen">
       <Header />
       <LoginBg />
       <LoginForm />

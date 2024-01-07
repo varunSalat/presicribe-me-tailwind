@@ -30,19 +30,19 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="w-[900px] shadow-lg overflow-hidden bg-white rounded-lg absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] flex align-middle justify-between">
-      <div className="bg-[#F7F7F7] w-[60%] px-4 py-2">
+    <div className="absolute left-[50%] top-[80px] flex w-[min(900px,90%)] translate-x-[-50%] flex-col-reverse justify-between overflow-hidden rounded-lg bg-white align-middle shadow-lg lg:top-[50%] lg:translate-y-[-50%] lg:flex-row">
+      <div className="w-full bg-[#F7F7F7] px-4 py-2 lg:w-[60%]">
         <h1 className="text-2xl font-medium">
           Online Prescription System for Hospitals.
         </h1>
-        <p className="text-body text-xl mt-1">
+        <p className="text-body mt-1 text-xl">
           We are Efficient, Accurate, and Secure
         </p>
-        <figure className="w-full my-12 ">
+        <figure className="my-12 w-full ">
           <img src={loginFormImg} alt="login-form-img" />
         </figure>
         <div className="mt-[4.5em]   flex justify-between">
-          <Link to={"/"} className="flex gap-1 text-md text-green">
+          <Link to={"/"} className="text-md flex gap-1 text-green">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"
@@ -63,7 +63,7 @@ const LoginForm = () => {
           </Link>
         </div>
       </div>
-      <div className="w-[40%] px-4 py-2  ">
+      <div className="w-full  px-4 py-2 lg:w-[40%]  ">
         <div className="text-center">
           <h1 className="text-2xl">Sign In</h1>
           <p className="text-body mt-2">
@@ -90,13 +90,13 @@ const LoginForm = () => {
                   handleLoginInputChange({
                     name: e.target.name,
                     value: e.target.value,
-                  })
+                  }),
                 )
               }
-              className="w-full rounded-md border-[1.5px] border-black-4 bg-transparent py-2 px-2 outline-none transition focus:border-green active:border-green disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
+              className="disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input w-full rounded-md border-[1.5px] border-black-4 bg-transparent px-2 py-2 outline-none transition focus:border-green active:border-green disabled:cursor-default dark:focus:border-primary"
             />
           </div>
-          <div className="my-4 relative">
+          <div className="relative my-4">
             <label
               htmlFor="pass"
               className="mb-1 block text-black dark:text-white"
@@ -115,14 +115,14 @@ const LoginForm = () => {
                   handleLoginInputChange({
                     name: e.target.name,
                     value: e.target.value,
-                  })
+                  }),
                 )
               }
-              className="w-full rounded-md border-[1.5px] border-black-4 bg-transparent py-2 px-2 outline-none transition focus:border-green active:border-green disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
+              className="disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input w-full rounded-md border-[1.5px] border-black-4 bg-transparent px-2 py-2 outline-none transition focus:border-green active:border-green disabled:cursor-default dark:focus:border-primary"
             />
             {showPass ? (
               <span
-                className="absolute cursor-pointer top-[40%] py-4 px-1 right-1 "
+                className="absolute right-1 top-[40%] cursor-pointer px-1 py-4 "
                 onClick={() => setShowPass(false)}
               >
                 <svg
@@ -140,7 +140,7 @@ const LoginForm = () => {
               </span>
             ) : (
               <span
-                className="absolute cursor-pointer top-[40%] py-3 px-1 right-1"
+                className="absolute right-1 top-[40%] cursor-pointer px-1 py-3"
                 onClick={() => setShowPass(true)}
               >
                 <svg
@@ -165,11 +165,11 @@ const LoginForm = () => {
               </span>
             )}
           </div>
-          <div className="flex justify-between my-6">
+          <div className="my-6 flex justify-between">
             <div>
               <label
                 htmlFor="checkboxLabelTwo"
-                className="flex cursor-pointer text-body select-none items-center"
+                className="text-body flex cursor-pointer select-none items-center"
               >
                 <div className="relative">
                   <input
@@ -215,13 +215,13 @@ const LoginForm = () => {
             disabled={loginUserRes.isLoading}
             className={`${
               loginUserRes.isLoading ? "bg-black-3" : "bg-green"
-            } w-full py-2 transition-three text-white rounded-md border-[1px] border-white hover:border-black`}
+            } transition-three w-full rounded-md border-[1px] border-white py-2 text-white hover:border-black`}
           >
             Sign in
           </button>
           <div className="flex justify-around gap-2">
             {roles.map((role, index) => (
-              <div key={index} className="flex justify-around gap-2 mt-6 mb-4">
+              <div key={index} className="mb-4 mt-6 flex justify-around gap-2">
                 <div>
                   <input
                     type="radio"
@@ -234,13 +234,13 @@ const LoginForm = () => {
                         handleLoginInputChange({
                           name: e.target.name,
                           value: e.target.value,
-                        })
+                        }),
                       )
                     }
                   />
                   <label
                     htmlFor={role}
-                    className={`border-[1px] border-green px-3 py-1 rounded-md cursor-pointer hover:bg-green hover:text-white transition-three ${
+                    className={`transition-three cursor-pointer rounded-md border-[1px] border-green px-3 py-1 hover:bg-green hover:text-white ${
                       designation === role
                         ? "bg-green text-white"
                         : "bg-transparent"

@@ -1,6 +1,6 @@
 const DashboardCardAttendedPatientIconSvg = () => {
   return (
-    <div className="dark:bg-meta-4 bg-[#FDEFE2]] flex h-11.5 w-11.5 items-center justify-center rounded-full dark:bg-[#f4cfac]">
+    <div className="dark:bg-meta-4 flex h-11.5 w-11.5 items-center justify-center rounded-full bg-[#FDEFE2] dark:bg-[#f4cfac]">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="fill-[#e57710] dark:fill-black"
